@@ -1,0 +1,549 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name h1{
+    font-size: 50px;
+    text-transform: uppercase;
+    color: dodgerblue;
+}
+
+/*Header*/
+#header{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+    max-width: 100%;
+    background-color: transparent;
+}
+#header .header .name h1{
+    font-size: 35px;
+    padding-top: 5px;
+    color: dodgerblue;
+    background-color: transparent;
+}
+
+#header .header{
+    min-height: 8vh;
+    background-color: rgba(31, 30, 30, 0.24);
+    transition: 0.3s ease background-color;
+}
+
+#header .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+
+#header .navlist ul{
+    list-style: none;
+    position: absolute;
+    background-color: rgb(31, 30, 30);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.4s ease left;
+}
+
+#header .navlist ul.active{
+    left: 0;
+}
+
+#header .navlist ul a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+    transition: 0.5s ease;
+    transition-property: color;
+}
+
+#header .navlist ul li:hover a{
+    color: dodgerblue;
+}
+
+#header .hamburger{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transform: scale(0.8);
+    margin-right: 20px;
+}
+
+#header .hamburger .bar{
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after, 
+#header .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: 0.3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after{
+    top: 8px;
+}
+
+#header .hamburger .bar::before{
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::before,
+#header .hamburger.active .bar::after{
+    top: 0;
+    bottom: 0;
+}
+
+/*Header End*/
+
+/*Main*/
+#main{
+    background-image: url(./imgs/background.jpg);
+    background-size: cover;
+    background-position: top-center;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#main::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
+}
+
+#main .main{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: center;
+}
+
+#main h1{
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+
+#main h1:nth-child(1){
+    animation-delay: 1s;
+}
+#main h1:nth-child(2){
+    animation-delay: 2s;
+}
+#main h1:nth-child(3){
+    animation-delay: 3s;
+}
+
+#main  h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: dodgerblue;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .3s;
+}
+
+#main h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#main h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#main h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+#main .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: dodgerblue;
+    border: 3px solid dodgerblue;
+    background-color: transparent;
+    font-size: 2rem;
+    text-transform: upeercase;
+    letter-spacing: 1.6px;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+#main .cta:hover{
+    color: white;
+    background-color: dodgerblue;
+}
+
+@keyframes text_reveal_box{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal{
+    100%{
+        color: white;
+    }
+}
+
+#main .main-img .myimg{
+    height: 300px;
+    width: 300px;
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: 0.4s ease;
+}
+
+#main .main-img .myimg:hover{
+    opacity: 1;
+}
+
+
+
+/*Main End*/
+
+/*About*/
+
+#about .about{
+    flex-direction: column;
+    text-align: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 60px 0;
+    background-color: steelblue;
+}
+
+#about .about-title{
+    font-size: 50px;
+    font-weight: 300;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+#about .about-title span{
+    color: black;
+}
+
+#about .about-item h2{
+    color: dodgerblue;
+}
+
+#about .about-bio p{
+    font-size: 22px;
+    margin-top: 5px;
+    line-height: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding-bottom: 30px;
+    color: black;
+    align-items: center;
+    max-width: 70%;
+    padding-left: 450px;
+}
+
+#about .about-edu{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#about .about-item{
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: silver;
+    background-size: cover;
+    margin: 10px 5%;
+    font-size: 15px;
+}
+
+/*About End*/
+
+/*Skills*/
+#skills h1{
+    font-size: 50px;
+    font-weight: 300;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+
+#skills{
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+#skills .progress{
+    margin: 1.5rem 0;
+    margin-left: 380px;
+    max-width: 50%;
+    padding: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+    background: rgba(255, 255, 255, .2);
+    border-radius: 1rem;
+}
+
+#skills .progress h3{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: black;
+}
+
+#skills .progress .bar{
+    position: relative;
+    width: 100%;
+    height: .3rem;
+    margin: 1rem 0;
+    overflow: hidden;
+    background: #555;
+}
+
+#skills .progress .bar span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: dodgerblue;
+}
+
+
+#skills .progress:nth-child(2) .bar span{
+    width: 85%;
+}
+#skills .progress:nth-child(3) .bar span{
+    width: 70%;
+}
+#skills .progress:nth-child(4) .bar span{
+    width: 40%;
+}
+#skills .progress:nth-child(5) .bar span{
+    width: 55%;
+}
+
+/*Skills End*/
+
+/*Contact*/
+#contact .contact{
+    min-height: 100vh;
+}
+
+#contact .contact-title{
+    font-size: 50px;
+    font-weight: 300;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+#contact .contact{
+    flex-direction: column;
+    max-width: 1600px;
+    background-color: cornflowerblue;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact .contact-items{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+#contact .contact-item{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    flex-direction: column;
+}
+
+#contact .contact-info h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 2rem;
+    color: black;
+}
+/*Contact End*/
+
+/*Footer*/
+#footer{
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+#footer .footer .name{
+    padding-bottom: 10px;
+}
+
+#footer .footer .name h1{
+    font-size: 40px;
+}
+
+#footer .footer{
+    min-height: 10vh;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+#footer .social-icon{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+
+#footer .social-item{
+    height: 50px;
+    width: 50px;
+    margin: 0 15px;
+    opacity: 0.5;
+}
+
+#footer .social-item:hover{
+    opacity: 1;
+}
+
+#footer p{
+    color: white;
+    font-size: 20px;
+}
+
+#footer p span{
+    color: black;
+    font-weight: 650;
+}
+/*Footer End*/
+
+/*Media query @ tablet*/
+@media only screen and (min-width:768px){
+    #main .cta{
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #header .hamburger{
+        display: none;
+    }
+    
+    #header .navlist ul{
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+    
+    #header .navlist ul li {
+        display: inline-block;
+    }
+    
+    #header .navlist ul li a{
+        font-size: 1.8rem;
+    }
+    
+    #header .navlist ul li a::after{
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+}
